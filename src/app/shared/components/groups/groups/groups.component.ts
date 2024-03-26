@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Group } from '../../../models/group';
 import { RouterOutlet } from '@angular/router';
 import { GroupComponent } from '../group/group.component';
-// group service
+import { GroupService } from '../../../../core/services/group.service';
 
 
 @Component({
@@ -13,51 +13,18 @@ import { GroupComponent } from '../group/group.component';
   styleUrl: './groups.component.scss'
 })
 export class GroupsComponent {
-  groups: Group[] = [
-    new Group({
-      id: 1, 
-      name: "Barton Family",
-      user: {
-        username: "Hannahwrites",
-        email: "hannahbarton@email.com",
-        first_name: "Hannah",
-        last_name: "Barton"
-      }
-    }),
-    new Group({
-      id: 2, 
-      name: "Green Family",
-      user: {
-        username: "SarahBeth",
-        email: "sarahbetha@email.com",
-        first_name: "Sarah",
-        last_name: "Houston"
-      }
-    }),
-    new Group({
-      id: 3, 
-      name: "Tuft Reunion",
-      user: {
-        username: "AmyYoshi",
-        email: "amy@email.com",
-        first_name: "Amy",
-        last_name: "Townes"
+  groups: Group[] = []
+
+  constructor(private groupService: GroupService) {}
+
+  ngOnInit(): void {
+    this.groupService.getAllGroups().subscribe({
+      next: (groups: Group[]) => {
+        this.groups = groups;
+      },
+      error: (error: any) => {
+        console.error('Error fetching all groups.', error);
       }
     })
-  ];
+  }
 }
-
-// TODO: create group service and seed groups (created groups) in the API
-//   constructor(private listService: ListService) {}
-
-//   ngOnInit(): void {
-//     this.listService.getAllLists().subscribe({
-//       next: (lists: List[]) => {
-//         this.lists = lists;
-//       },
-//       error: (error: any) => {
-//         console.error('Error fetching all lists.', error);
-//       }
-//     })
-//   }
-// }

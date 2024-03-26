@@ -8,13 +8,15 @@ export const routes: Routes = [
         loadComponent: () => import('./features/dashboard/dashboard.component').then((c) => c.DashboardComponent)
     },
     {
+        path: 'login',
+        loadComponent: () => import('./features/auth/login/login.component').then((c) => c.LoginComponent)
+    },
+    {
         path: "lists",
-        pathMatch: "full",
         loadComponent: () => import('./shared/components/lists/lists/lists.component').then((c) => c.ListsComponent)
     },
     {
         path: "groups",
-        pathMatch: "full",
         loadComponent: () => import('./shared/components/groups/groups/groups.component').then((c) => c.GroupsComponent)
     }
 ];
