@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from './user.service';
+import { pipe, switchMap } from 'rxjs';
 import { environment } from '../../../environments/environment';
 
 @Injectable({
@@ -8,14 +10,25 @@ import { environment } from '../../../environments/environment';
 })
 export class AuthenticationService {
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private userService: UserService
+  ) { }
 
   login(username: string, password: string) {
     return this.http.post<{token: string}>(`${environment.apiUrl}/login`,
     {
       username,
       password
-    });
+    }).pipe(switchMap((res:any) => {
+      this.setToken(res.token)
+      return this.userService.getBootstrapData()
+    }));
+  }
+
+  signup(data:any) {
+    return this.http.post(`${environment.apiUrl}/users`, data)
   }
 
   setToken(token: string) {

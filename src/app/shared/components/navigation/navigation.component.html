@@ -1,8 +1,21 @@
 <nav class="navbar">
     <div class="nav-links">
-        <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Dashboard</a>
-        <a routerLink="lists" routerLinkActive="active">My Lists</a>
-        <!-- TODO -->
-        <a routerLink="groups" routerLinkActive="active">My Groups</a>
+        <div>
+            @if (isLoggedIn()) {
+                <a (click)="logout()">Logout</a>
+            } @else {
+                <a routerLink="/login">Login</a>
+                <a routerLink="/signup">Sign Up</a>
+            }
+
+        </div>
+        @if (isLoggedIn()) {
+            <div>
+                <!-- TODO put these in a conditional render for when the user is logged in -->
+                <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Dashboard</a>
+                <a routerLink="lists" routerLinkActive="active">My Lists</a>
+                <a routerLink="groups" routerLinkActive="active">My Groups</a>
+            </div>
+        }
     </div>
 </nav>
