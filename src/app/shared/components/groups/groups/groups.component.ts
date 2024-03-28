@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Group } from '../../../models/group';
+import { User } from '../../../models/user';
 import { RouterOutlet } from '@angular/router';
 import { GroupComponent } from '../group/group.component';
 import { GroupService } from '../../../../core/services/group.service';
+import { UserService } from '../../../../core/services/user.service';
 
 
 @Component({
@@ -12,13 +14,21 @@ import { GroupService } from '../../../../core/services/group.service';
   templateUrl: './groups.component.html',
   styleUrl: './groups.component.scss'
 })
-export class GroupsComponent {
+export class GroupsComponent implements OnInit{
   groups: Group[] = []
+  currentUser: User | null = new User({})
 
-  constructor(private groupService: GroupService) {}
+  constructor(
+    private groupService: GroupService,
+    private userService: UserService) {}
+
 
   ngOnInit(): void {
-    this.groupService.getAllGroups().subscribe({
+    this.userService.currentUserBehaviorSubject.subscribe(()=> {
+      this.currentUser = this.userService.currentUserBehaviorSubject.value;
+    })
+
+    this.groupService.getUserGroups(this.currentUser!.id).subscribe({
       next: (groups: Group[]) => {
         this.groups = groups;
       },

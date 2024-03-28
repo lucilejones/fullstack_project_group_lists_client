@@ -14,4 +14,8 @@ export class GroupService {
   getAllGroups(): Observable<Group[]> {
     return this.http.get<Group[]>(`${environment.apiUrl}/groups`)
   }
+
+  getUserGroups(id: any): Observable<Group[]> {
+    return this.http.get<Group[]>(`${environment.apiUrl}/users/${id}/created_groups`)
+  }
 }

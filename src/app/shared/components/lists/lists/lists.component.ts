@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { List } from '../../../models/list';;
+import { List } from '../../../models/list';
+import { User } from '../../../models/user';
 import { RouterOutlet } from '@angular/router';
 import { ListComponent } from '../list/list.component';
 import { ListService } from '../../../../core/services/list.service';
+import { UserService } from '../../../../core/services/user.service';
 
 @Component({
   selector: 'app-lists',
@@ -13,11 +15,19 @@ import { ListService } from '../../../../core/services/list.service';
 })
 export class ListsComponent {
   lists: List[] = [];
+  currentUser: User | null = new User({});
 
-  constructor(private listService: ListService) {}
+  constructor(
+    private listService: ListService,
+    private userService: UserService
+    ) {}
 
   ngOnInit(): void {
-    this.listService.getAllLists().subscribe({
+    this.userService.currentUserBehaviorSubject.subscribe(()=> {
+      this.currentUser = this.userService.currentUserBehaviorSubject.value;
+    })
+
+    this.listService.getUserLists(this.currentUser!.id).subscribe({
       next: (lists: List[]) => {
         this.lists = lists;
       },
@@ -26,4 +36,5 @@ export class ListsComponent {
       }
     })
   }
+
 }
