@@ -16,6 +16,11 @@ export const routes: Routes = [
         canActivate: [authGuard]
     },
     {
+        path: "lists/:id",
+        loadComponent: () => import('./shared/components/lists/list/list.component').then((c) => c.ListComponent),
+        canActivate: [authGuard]
+    },
+    {
         path: "groups",
         loadComponent: () => import('./shared/components/groups/groups/groups.component').then((c) => c.GroupsComponent),
         canActivate: [authGuard]

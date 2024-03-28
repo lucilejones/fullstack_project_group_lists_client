@@ -19,4 +19,8 @@ export class ListService {
   getUserLists(id: any): Observable<List[]> {
     return this.http.get<List[]>(`${environment.apiUrl}/users/${id}/lists`)
   }
+
+  getOneList(id:string | number) {
+    return this.http.get<List>(`${environment.apiUrl}/lists/${id}`)
+  }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { List } from '../../../models/list';
 import { User } from '../../../models/user';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { ListComponent } from '../list/list.component';
 import { ListService } from '../../../../core/services/list.service';
 import { UserService } from '../../../../core/services/user.service';
@@ -9,7 +9,7 @@ import { UserService } from '../../../../core/services/user.service';
 @Component({
   selector: 'app-lists',
   standalone: true,
-  imports: [RouterOutlet, ListComponent],
+  imports: [RouterModule, RouterOutlet, ListComponent],
   templateUrl: './lists.component.html',
   styleUrl: './lists.component.scss'
 })

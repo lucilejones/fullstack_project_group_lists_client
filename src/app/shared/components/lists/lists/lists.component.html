@@ -1,7 +1,8 @@
 <div class="container">
     <div class="list-of-lists">
         @for (list of lists; track list.id) {
-            <app-list [list]="list"/>
+            <!-- <app-list [list]="list"/> -->
+            <a [routerLink]="['/lists', list.id]"><p>{{list.name}}</p></a>
         }
     </div>
 </div>
