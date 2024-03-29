@@ -1,20 +1,18 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { List } from '../../../models/list';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Item } from '../../../models/item';
 import { ItemService } from '../../../../core/services/item.service';
 
 @Component({
   selector: 'app-item',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './item.component.html',
   styleUrl: './item.component.scss'
 })
 export class ItemComponent implements OnInit{
-  // @Input({required:true}) list:List = new List({})
-  // id: number = this.list.id;
-  item:Item = new Item({});
+  @Input({required:true}) item:Item = new Item({})
+  // item:Item = new Item({});
 
   constructor(
     private route: ActivatedRoute,
@@ -26,13 +24,19 @@ export class ItemComponent implements OnInit{
     this.route.params.subscribe((params) => {
         this.itemService.getOneItem(params['id']).subscribe({
             next: (item:Item) => {
-              // console.log(item.list_id)
+              console.log(item.name)
                 this.item = item
             },
             error: (error: any) => {
                 console.log(error);
             }
         })
+    })
+  }
+
+  navigateToEditItemRoute(id: number) {
+    this.router.navigate(['./', id, 'edit'], {
+      relativeTo: this.route
     })
   }
 

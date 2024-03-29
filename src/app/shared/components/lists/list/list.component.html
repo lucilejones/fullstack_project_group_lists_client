@@ -1,11 +1,16 @@
 <div class="list-header">
     <div>{{list.name}}</div>
 </div>
+
 <div>
-    <ul>
-        @for(item of list.items; track item.id) {
-            <!-- <li>{{item.name}}</li> -->
-            <a [routerLink]="['/items', item.id]"><p>{{item.name}}</p></a>
+    <ul class="item-list">
+        @for (item of items; track item.id) {
+            <div class="item-container">
+                <a [routerLink]="['/items', item.id]"><p>{{item.name}}</p></a>
+                <span *ngIf="item.need_to_purchase"> * </span>
+                <p (click)="navigateToEditItemRoute(item.id)" style="cursor: pointer">edit</p>
+                <p>delete</p>
+            </div>
         }
     </ul>
 </div>
