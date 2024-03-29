@@ -1,13 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { List } from '../../../models/list';
 import { Item } from '../../../models/item';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule, RouterOutlet } from '@angular/router';
 import { ListService } from '../../../../core/services/list.service';
+import { ItemComponent } from '../../items/item/item.component';
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [],
+  imports: [RouterModule, RouterOutlet, ItemComponent],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss'
 })
@@ -25,7 +26,7 @@ export class ListComponent implements OnInit{
               // console.log(list.items)
                 this.list = list
             },
-            error: (error) => {
+            error: (error: any) => {
                 console.log(error);
             }
         })

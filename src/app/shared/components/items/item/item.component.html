@@ -1,5 +1,16 @@
-<p>item works!</p>
+<div>
+    <button (click)="goBack()">Back to {{item.name}} list</button>
+</div>
+
+<div>
+    <ul>
+        <li>Name: {{item.name}}</li>
+        <li>Brand: {{item.brand}}</li>
+        <li>Store: {{item.store}}</li>
+        <li>Notes: {{item.notes}}</li>
+        <li>Need to purchase: {{item.need_to_purchase}}</li>
+    </ul>
+</div>
 
 <!-- TODO -->
-<!-- list out details -->
 <!-- edit button, delete button -->

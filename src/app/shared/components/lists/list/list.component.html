@@ -4,11 +4,22 @@
 <div>
     <ul>
         @for(item of list.items; track item.id) {
-            <li>{{item.name}}</li>
+            <!-- <li>{{item.name}}</li> -->
+            <a [routerLink]="['/items', item.id]"><p>{{item.name}}</p></a>
         }
     </ul>
 </div>
+<div>
+    <button routerLink="add-item">Add new item</button>
+</div>
+
+<router-outlet />
+
+
 
 <!-- Add item, edit item, delete item, mark as need_to_purchase -->
 <!-- Delete List -->
 <!-- Edit name of this list -->
+
+
+<!-- <a routerLink="lists" routerLinkActive="active">My Lists</a> -->
