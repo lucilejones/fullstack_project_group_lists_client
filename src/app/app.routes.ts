@@ -26,6 +26,11 @@ export const routes: Routes = [
         canActivate: [authGuard]
     },
     {
+        path: "groups/:id",
+        loadComponent: () => import('./shared/components/groups/group/group.component').then((c) => c.GroupComponent),
+        canActivate: [authGuard]
+    },
+    {
         path: 'login',
         loadComponent: () => import('./features/auth/login/login.component').then((c) => c.LoginComponent),
         canActivate: [noAuthGuard]

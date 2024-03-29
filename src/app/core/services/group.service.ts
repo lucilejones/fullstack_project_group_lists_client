@@ -18,4 +18,10 @@ export class GroupService {
   getUserGroups(id: any): Observable<Group[]> {
     return this.http.get<Group[]>(`${environment.apiUrl}/users/${id}/created_groups`)
   }
+
+  getOneGroup(id:string | number) {
+    return this.http.get<Group>(`${environment.apiUrl}/groups/${id}`)
+  }
+
+  // TODO add function to get a user's group they're members of
 }

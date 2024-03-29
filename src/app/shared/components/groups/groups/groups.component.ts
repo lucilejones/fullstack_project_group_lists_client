@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Group } from '../../../models/group';
 import { User } from '../../../models/user';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { GroupComponent } from '../group/group.component';
 import { GroupService } from '../../../../core/services/group.service';
 import { UserService } from '../../../../core/services/user.service';
@@ -10,7 +10,7 @@ import { UserService } from '../../../../core/services/user.service';
 @Component({
   selector: 'app-groups',
   standalone: true,
-  imports: [RouterOutlet, GroupComponent],
+  imports: [RouterModule, RouterOutlet, GroupComponent],
   templateUrl: './groups.component.html',
   styleUrl: './groups.component.scss'
 })
@@ -33,7 +33,7 @@ export class GroupsComponent implements OnInit{
         this.groups = groups;
       },
       error: (error: any) => {
-        console.error('Error fetching all groups.', error);
+        console.error('Error fetching user groups.', error);
       }
     })
   }

@@ -1,7 +1,8 @@
 <div class="container">
     <div class="list-of-groups">
         @for (group of groups; track group.id) {
-            <app-group [group]="group"/>
+            <!-- <app-group [group]="group"/> -->
+            <a [routerLink]="['/groups', group.id]"><p>{{group.name}}</p></a>
         }
     </div>
 </div>

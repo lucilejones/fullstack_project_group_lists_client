@@ -1,3 +1,10 @@
 <div class="list-header">
     <div>{{list.name}}</div>
 </div>
+<div>
+    <ul>
+        @for(item of list.items; track item.id) {
+            <li>{{item.name}}</li>
+        }
+    </ul>
+</div>
