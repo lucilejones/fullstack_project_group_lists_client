@@ -6,11 +6,13 @@ export class List {
     name: string;
     items: Item[];
     user?: User;
+    group_id: number;
 
     constructor(list: any) {
         this.id = list.id || 0;
         this.name = list.name || "";
         this.items = list.items;
         this.user = list.user || null;
+        this.group_id = list.group_id || null;
     }
 }

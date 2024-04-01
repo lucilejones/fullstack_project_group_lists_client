@@ -1,17 +1,18 @@
 import { User } from './user';
+import { List } from './list';
 
 export class Group {
     id: number;
     name: string;
-    user?: User;
-    // change this to creator?
+    creator?: User;
     members: User[];
+    lists: List[];
 
     constructor(group: any) {
         this.id = group.id || 0;
         this.name = group.name || "";
-        this.user = group.user || null;
-        // this.creator = group.creator || new User({});
+        this.creator = group.creator || new User({});
         this.members = group.members || [];
+        this.lists = group.lists || [];
     }
 }

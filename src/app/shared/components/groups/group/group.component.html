@@ -2,13 +2,32 @@
     <div>{{group.name}}</div>
 </div>
 <div>
+    <div>
+        <p>Users in this Group</p>
+    </div>
+
     <ul>
+        <li>{{group.creator?.username}} ({{group.creator?.first_name}})</li>
         @for(member of group.members; track member.id) {
             <li>{{member.username}} ({{member.first_name}})</li>
         }
     </ul>
 </div>
-
+<!-- TODO: Show the bottom only when the creator is logged in? -->
+<div *ngIf="this.currentUser?.id == group.creator?.id">
+<!-- <div> -->
+    <div>
+        <p>Items from all members' lists that need to be purchased</p>
+    </div>
+    <ul>
+        @for(list of group.lists; track list.id) {
+            <p>{{list.name}} ({{list.user?.username}})</p>
+            @for(item of list.items; track item.id) {
+                <li *ngIf="item.need_to_purchase"> {{item.name}}</li>
+            }
+        }
+    </ul>
+</div>
 <!-- TODO add/invite member -->
 <!-- Delete member, edit member -->
 <!-- TODO generate a shopping list for this group (all items marked as need_to_purchase from all lists in the group) -->

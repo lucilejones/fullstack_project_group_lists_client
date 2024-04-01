@@ -1,6 +1,12 @@
 <div class="container">
     <div class="list-of-groups">
-        @for (group of groups; track group.id) {
+        <p>Created Groups</p>
+        @for (group of createdGroups; track group.id) {
+            <!-- <app-group [group]="group"/> -->
+            <a [routerLink]="['/groups', group.id]"><p>{{group.name}}</p></a>
+        }
+        <p>Joined Groups</p>
+        @for (group of joinedGroups; track group.id) {
             <!-- <app-group [group]="group"/> -->
             <a [routerLink]="['/groups', group.id]"><p>{{group.name}}</p></a>
         }

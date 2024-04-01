@@ -15,7 +15,8 @@ import { UserService } from '../../../../core/services/user.service';
   styleUrl: './groups.component.scss'
 })
 export class GroupsComponent implements OnInit{
-  groups: Group[] = []
+  createdGroups: Group[] = []
+  joinedGroups: Group[] = []
   currentUser: User | null = new User({})
 
   constructor(
@@ -28,13 +29,26 @@ export class GroupsComponent implements OnInit{
       this.currentUser = this.userService.currentUserBehaviorSubject.value;
     })
 
-    this.groupService.getUserGroups(this.currentUser!.id).subscribe({
+    this.groupService.getUserCreatedGroups(this.currentUser!.id).subscribe({
       next: (groups: Group[]) => {
-        this.groups = groups;
+        console.log(groups)
+        this.createdGroups = groups;
       },
       error: (error: any) => {
-        console.error('Error fetching user groups.', error);
+        console.error('Error fetching user created groups.', error);
+      }
+    })
+
+    this.groupService.getUserJoinedGroups(this.currentUser!.id).subscribe({
+      next: (groups: Group[]) => {
+        console.log(groups)
+        this.joinedGroups = groups;
+      },
+      error: (error: any) => {
+        console.error('Error fetching user joined groups.', error);
       }
     })
   }
+
+  
 }
