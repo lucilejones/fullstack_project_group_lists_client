@@ -27,5 +27,4 @@ export class GroupService {
     return this.http.get<Group>(`${environment.apiUrl}/groups/${id}`)
   }
 
-  // TODO add function to get a user's group they're members of
 }

@@ -13,24 +13,32 @@
         }
     </ul>
 </div>
-<!-- TODO: Show the bottom only when the creator is logged in? -->
+
 <div *ngIf="this.currentUser?.id == group.creator?.id">
-<!-- <div> -->
     <div>
-        <p>Items from all members' lists that need to be purchased</p>
+        <p>Create a shopping list from all members' lists of items that need to be purchased</p>
     </div>
-    <ul>
+    <button (click)="generateItemsToPurchase()">Create List</button>
+    <!-- <ul>
         @for(list of group.lists; track list.id) {
             <p>{{list.name}} ({{list.user?.username}})</p>
             @for(item of list.items; track item.id) {
                 <li *ngIf="item.need_to_purchase"> {{item.name}}</li>
             }
         }
-    </ul>
+    </ul> -->
+    @if(showList) {
+        <div>
+            @for(item of toPurchaseItems; track item.id) {
+                <li *ngIf="item.need_to_purchase"> {{item.name}}</li>
+            }
+        </div>
+    }
+
 </div>
 <!-- TODO add/invite member -->
 <!-- Delete member, edit member -->
-<!-- TODO generate a shopping list for this group (all items marked as need_to_purchase from all lists in the group) -->
+<!-- TODO save the generated shopping list for this group (localStorage?)-->
 <!-- Then the user has a way to change need_to_purchase to false? Or individual users update their own lists? -->
 
 <!-- If it's their created group, have option to invite a user to this group -->

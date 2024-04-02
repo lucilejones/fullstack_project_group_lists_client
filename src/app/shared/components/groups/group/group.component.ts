@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Group } from '../../../models/group';
 import { User } from '../../../models/user';
+import { List } from '../../../models/list';
+import { Item } from '../../../models/item';
 import { ActivatedRoute } from '@angular/router';
 import { GroupService } from '../../../../core/services/group.service';
 import { UserService } from '../../../../core/services/user.service';
@@ -18,6 +20,9 @@ export class GroupComponent implements OnInit{
   currentUser: User | null = null;
   group:Group = new Group({});
   members: User[] = [];
+  lists: List[] = [];
+  toPurchaseItems: Item[] = [];
+  showList = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -34,6 +39,7 @@ export class GroupComponent implements OnInit{
               // console.log(group.lists)
               console.log(group.creator)
                 this.group = group
+                this.lists = group.lists
             },
             error: (error) => {
                 console.log(error);
@@ -41,10 +47,20 @@ export class GroupComponent implements OnInit{
         })
     })
 
-  this.userService.currentUserBehaviorSubject.subscribe((user) => {
-    console.log(user)
-    this.currentUser = user;
-  })
+    this.userService.currentUserBehaviorSubject.subscribe((user) => {
+      console.log(user)
+      this.currentUser = user;
+    })
+  }
+
+  generateItemsToPurchase() {
+    const allLists = this.lists
+    const allItems = allLists.flatMap((list) => list.items)
+    const toPurchaseItems = allItems.filter((item) => item.need_to_purchase == true)
+    console.log(toPurchaseItems)
+    this.showList = true;
+    this.toPurchaseItems = toPurchaseItems;
   }
 }
 
+// this.event.participants = this.event.participants.filter((p) => p.id !== this.currentUser?.id)
