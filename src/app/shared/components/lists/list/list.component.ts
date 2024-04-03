@@ -2,14 +2,14 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { List } from '../../../models/list';
 import { Item } from '../../../models/item';
-import { ActivatedRoute, Router, RouterModule, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ListService } from '../../../../core/services/list.service';
 import { ItemComponent } from '../../items/item/item.component';
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [CommonModule, ItemComponent, RouterModule, RouterOutlet],
+  imports: [CommonModule, ItemComponent, RouterModule],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss'
 })

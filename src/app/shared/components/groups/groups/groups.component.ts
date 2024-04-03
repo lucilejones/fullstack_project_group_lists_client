@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Group } from '../../../models/group';
 import { User } from '../../../models/user';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { GroupComponent } from '../group/group.component';
 import { GroupService } from '../../../../core/services/group.service';
 import { UserService } from '../../../../core/services/user.service';
@@ -10,7 +10,7 @@ import { UserService } from '../../../../core/services/user.service';
 @Component({
   selector: 'app-groups',
   standalone: true,
-  imports: [RouterModule, RouterOutlet, GroupComponent],
+  imports: [RouterModule, GroupComponent],
   templateUrl: './groups.component.html',
   styleUrl: './groups.component.scss'
 })

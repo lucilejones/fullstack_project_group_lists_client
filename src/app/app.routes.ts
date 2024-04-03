@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { authGuard } from '../app/core/guards/auth.guard';
 import { noAuthGuard } from '../app/core/guards/no-auth.guard';
 import { ItemFormComponent } from './shared/components/items/item-form/item-form.component';
+import { ListFormComponent } from './shared/components/lists/list-form/list-form.component';
 
 export const routes: Routes = [
 
@@ -15,6 +16,13 @@ export const routes: Routes = [
         path: "lists",
         loadComponent: () => import('./shared/components/lists/lists/lists.component').then((c) => c.ListsComponent),
         canActivate: [authGuard],
+        children: [
+            {
+                path: 'add-list',
+                component: ListFormComponent,
+                canActivate: [authGuard]
+            }
+        ]
     },
     {
         path: "lists/:id",
@@ -23,11 +31,13 @@ export const routes: Routes = [
         children: [
             {
                 path: 'add-item',
-                component: ItemFormComponent
+                component: ItemFormComponent,
+                canActivate: [authGuard]
             },
             {
                 path: ':id/edit',
-                component: ItemFormComponent
+                component: ItemFormComponent,
+                canActivate: [authGuard]
             }
         ]
     },

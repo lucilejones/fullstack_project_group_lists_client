@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { List } from '../../../models/list';
 import { User } from '../../../models/user';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { ListService } from '../../../../core/services/list.service';
 import { UserService } from '../../../../core/services/user.service';
 
 @Component({
   selector: 'app-lists',
   standalone: true,
-  imports: [RouterModule, RouterOutlet],
+  imports: [RouterModule],
   templateUrl: './lists.component.html',
   styleUrl: './lists.component.scss'
 })

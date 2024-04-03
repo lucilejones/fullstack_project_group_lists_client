@@ -19,14 +19,14 @@
         <p>Create a shopping list from all members' lists of items that need to be purchased</p>
     </div>
     <button (click)="generateItemsToPurchase()">Create List</button>
-    <!-- <ul>
+    <ul>
         @for(list of group.lists; track list.id) {
             <p>{{list.name}} ({{list.user?.username}})</p>
             @for(item of list.items; track item.id) {
                 <li *ngIf="item.need_to_purchase"> {{item.name}}</li>
             }
         }
-    </ul> -->
+    </ul>
     @if(showList) {
         <div>
             @for(item of toPurchaseItems; track item.id) {
