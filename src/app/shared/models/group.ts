@@ -4,7 +4,7 @@ import { List } from './list';
 export class Group {
     id: number;
     name: string;
-    creator?: User;
+    creator: User;
     members: User[];
     lists: List[];
 

@@ -1,1 +1,27 @@
-<p>list-form works!</p>
+<div>
+    <form [formGroup]="listForm" (ngSubmit)="onCreateList()">
+        <div>
+            <label for="name">Name</label>
+            <input type="text" formControlName="name" />
+        </div>
+        <p>Group:</p>
+        <!-- @if(groupIds.length > 0) {
+            <div formArrayName="groupIds">
+                @for(group of groups; track group.id) {
+                <input type="checkbox" [formControlName]="$index" [value]="group.id">
+                {{ group.name }}
+            }
+            </div>
+
+        } -->
+        @if(groups.length > 0) {
+            <select formControlName="groupId">
+                <option value="null">Select Group</option>
+                @for(group of groups; track group.id) {
+                    <option [value]="group.id">{{ group.name }}</option>
+                }
+            </select>
+        }
+        <button type="submit">Create List</button>
+    </form>
+</div>

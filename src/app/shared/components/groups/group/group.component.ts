@@ -37,7 +37,7 @@ export class GroupComponent implements OnInit{
               // console.log(group)
               // console.log(group.members)
               // console.log(group.lists)
-              console.log(group.creator)
+              console.log(group.members)
                 this.group = group
                 this.lists = group.lists
             },
@@ -48,7 +48,7 @@ export class GroupComponent implements OnInit{
     })
 
     this.userService.currentUserBehaviorSubject.subscribe((user) => {
-      console.log(user)
+      // console.log(user)
       this.currentUser = user;
     })
   }

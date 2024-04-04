@@ -1,17 +1,18 @@
 <div class="container">
     <div class="list-of-groups">
-        <p>Created Groups</p>
+        <!-- <p>Created Groups</p>
         @for (group of createdGroups; track group.id) {
-            <!-- <app-group [group]="group"/> -->
             <a [routerLink]="['/groups', group.id]"><p>{{group.name}}</p></a>
         }
-        <p>Joined Groups</p>
-        @for (group of joinedGroups; track group.id) {
-            <!-- <app-group [group]="group"/> -->
-            <a [routerLink]="['/groups', group.id]"><p>{{group.name}}</p></a>
-        }
+        <p>Joined Groups</p> -->
+            @for (group of joinedGroups; track group.id) {
+                <div class="group-name">
+                <a [routerLink]="['/groups', group.id]"><p>{{group.name}}</p></a>
+                <p *ngIf="this.currentUser?.id == group.creator?.id"> creator</p>
+                <!-- <p>{{group.creator.username}}</p> -->
+                </div>
+            }
     </div>
 </div>
 
 <!-- TODO create a new group -->
-<!-- TODO show groups the user is a member of, not just their created groups -->

@@ -6,12 +6,16 @@
         <p>Users in this Group</p>
     </div>
 
-    <ul>
-        <li>{{group.creator?.username}} ({{group.creator?.first_name}})</li>
+    <div>
+        <!-- <li>{{group.creator.username}} ({{group.creator.first_name}}) creator</li> -->
         @for(member of group.members; track member.id) {
-            <li>{{member.username}} ({{member.first_name}})</li>
+            <div class="member-list">
+                <p *ngIf="group.creator?.id == member.id"> creator</p>
+                <p>{{member.username}} ({{member.first_name}})</p>
+                <p *ngIf="this.currentUser?.id == member.id"> you</p>
+            </div>
         }
-    </ul>
+    </div>
 </div>
 
 <div *ngIf="this.currentUser?.id == group.creator?.id">

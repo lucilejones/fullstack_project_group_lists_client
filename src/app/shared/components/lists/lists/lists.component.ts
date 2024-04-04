@@ -34,6 +34,7 @@ export class ListsComponent {
         console.error('Error fetching all lists.', error);
       }
     })
+
   }
 
 }
