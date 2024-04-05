@@ -27,9 +27,10 @@ export class ListComponent implements OnInit{
     this.route.params.subscribe((params) => {
         this.listService.getOneList(params['id']).subscribe({
             next: (list:List) => {
-              // console.log(list.group_id)
-                this.list = list;
-                this.items = list.items;
+              console.log(list.group_id, "group_id")
+              console.log(list.id, "list_id")
+              this.list = list;
+              this.items = list.items;
             },
             error: (error: any) => {
                 console.log(error);

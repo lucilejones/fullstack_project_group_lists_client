@@ -15,7 +15,7 @@
 
         } -->
         @if(groups.length > 0) {
-            <select formControlName="groupId">
+            <select formControlName="group_id">
                 <option value="null">Select Group</option>
                 @for(group of groups; track group.id) {
                     <option [value]="group.id">{{ group.name }}</option>

@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router'
 import { Group } from '../../../models/group';
 import { User } from '../../../models/user';
 import { GroupService } from '../../../../core/services/group.service';
 import { UserService } from '../../../../core/services/user.service';
+import { ListService } from '../../../../core/services/list.service';
 
 @Component({
   selector: 'app-list-form',
@@ -17,14 +19,16 @@ export class ListFormComponent implements OnInit{
   listForm: FormGroup = new FormGroup({
     name: new FormControl(''),
     // groupIds: new FormArray([])
-    groupId: new FormControl(null)
+    group_id: new FormControl(null)
   })
   currentUser: User | null = new User({})
   groups: Group[] = [];
 
   constructor(
+    private router: Router,
     private userService: UserService,
-    private groupService: GroupService
+    private groupService: GroupService,
+    private listService: ListService
     ) {}
 
   ngOnInit(): void {
@@ -55,20 +59,23 @@ export class ListFormComponent implements OnInit{
     })
   }
 
-  get groupIds(): FormArray {
-    return this.listForm.get("groupIds") as FormArray;
-  }
+  // get groupIds(): FormArray {
+  //   return this.listForm.get("groupIds") as FormArray;
+  // }
 
-  extractGroupIds() {
+  // extractGroupIds() {
 
-  }
+  // }
 
   onCreateList() {
-    console.log(this.listForm.value)
+    // console.log(this.listForm.value)
+    this.listService.createList(this.listForm.value).subscribe({
+      next: () => {
+        this.router.navigate(['/'])
+      }
+    })
   }
 
 }
 
-// TODO: need to have an optional group to add to
-// iterate through the user's groups (created and joined)
-// in order to have a dropdown to choose from
+// TODO: need a subject or event emitter to notify the lists component that the lists have updated
