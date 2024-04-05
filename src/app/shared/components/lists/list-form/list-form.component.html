@@ -4,16 +4,8 @@
             <label for="name">Name</label>
             <input type="text" formControlName="name" />
         </div>
-        <p>Group:</p>
-        <!-- @if(groupIds.length > 0) {
-            <div formArrayName="groupIds">
-                @for(group of groups; track group.id) {
-                <input type="checkbox" [formControlName]="$index" [value]="group.id">
-                {{ group.name }}
-            }
-            </div>
-
-        } -->
+        <!-- <p>Group:</p> -->
+        <label for="group_id">Group</label>
         @if(groups.length > 0) {
             <select formControlName="group_id">
                 <option value="null">Select Group</option>

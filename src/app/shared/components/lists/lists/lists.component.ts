@@ -4,6 +4,7 @@ import { User } from '../../../models/user';
 import { RouterModule } from '@angular/router';
 import { ListService } from '../../../../core/services/list.service';
 import { UserService } from '../../../../core/services/user.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-lists',
@@ -14,6 +15,7 @@ import { UserService } from '../../../../core/services/user.service';
 })
 export class ListsComponent {
   lists: List[] = [];
+  // listsSub: Subscription;
   currentUser: User | null = new User({});
 
   constructor(
@@ -34,6 +36,12 @@ export class ListsComponent {
         console.error('Error fetching all lists.', error);
       }
     })
+
+    // this.listsSub = this.listService.listsUpdated.subscribe(
+    //   (updatedLists: List[]) => {
+    //     this.lists = [...updatedLists];
+    //   }
+    // )
 
   }
 

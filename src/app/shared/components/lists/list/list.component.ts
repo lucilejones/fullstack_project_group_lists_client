@@ -5,6 +5,7 @@ import { Item } from '../../../models/item';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ListService } from '../../../../core/services/list.service';
 import { ItemComponent } from '../../items/item/item.component';
+import { ItemService } from '../../../../core/services/item.service';
 
 @Component({
   selector: 'app-list',
@@ -21,7 +22,9 @@ export class ListComponent implements OnInit{
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private listService: ListService) {}
+    private listService: ListService,
+    private itemService: ItemService
+  ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -43,5 +46,13 @@ export class ListComponent implements OnInit{
     this.router.navigate(['./', id, 'edit'], {
       relativeTo: this.route
     })
+  }
+
+  // TODO: create an alert and then the delete functionality is from there?
+  // Then the this.router.navigate can go back to the list and it'll update
+  deleteItem(id: string | number) {
+    this.itemService.deleteItem(id);
+    // update the UI immediately?
+    // this.router.navigate()
   }
 }

@@ -15,10 +15,10 @@
     </ul>
 </div>
 <div>
-    <button routerLink="add-item">Add new item</button>
+    <button [routerLink]="['/lists', list.id, 'add-item']">Add new item</button>
 </div>
 
-<router-outlet />
+
 
 
 

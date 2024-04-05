@@ -20,4 +20,12 @@ export class ItemService {
     return this.http.get<Item>(`${environment.apiUrl}/items/${id}`)
   }
 
+  createItem(item:Item) {
+    return this.http.post(`${environment.apiUrl}/items`, item);
+  }
+
+  deleteItem(id:string | number) {
+    return this.http.delete(`${environment.apiUrl}/items/${id}`)
+  }
+
 }

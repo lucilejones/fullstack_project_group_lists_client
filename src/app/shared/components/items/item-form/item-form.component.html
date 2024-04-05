@@ -1,1 +1,26 @@
-<p>item-form works!</p>
+<div>
+    <form [formGroup]="itemForm" (ngSubmit)="onCreateItem()">
+        <div>
+            <label for="name">Name</label>
+            <input type="text" formControlName="name">
+        </div>
+        <div>
+            <label for="brand">Brand</label>
+            <input type="text" formControlName="brand">
+        </div>
+        <div>
+            <label for="store">Store</label>
+            <input type="text" formControlName="store">
+        </div>
+        <div>
+            <label for="notes">Notes</label>
+            <input type="text" formControlName="notes">
+        </div>
+        <!-- checkmark -->
+        <div>
+            <label for="need_to_purchase">Need to purchase</label>
+            <input type="checkbox" formControlName="need_to_purchase">
+        </div>
+        <button type="submit">Create Item</button>
+    </form>
+</div>

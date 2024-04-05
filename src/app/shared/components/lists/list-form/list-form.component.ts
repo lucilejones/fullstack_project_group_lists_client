@@ -18,7 +18,6 @@ import { ListService } from '../../../../core/services/list.service';
 export class ListFormComponent implements OnInit{
   listForm: FormGroup = new FormGroup({
     name: new FormControl(''),
-    // groupIds: new FormArray([])
     group_id: new FormControl(null)
   })
   currentUser: User | null = new User({})
@@ -47,11 +46,6 @@ export class ListFormComponent implements OnInit{
     this.groupService.getUserJoinedGroups(this.currentUser!.id).subscribe({
       next: (groups: any) => {
         this.groups = groups;
-        // groups.forEach((group:Group) => {
-        //   this.addGroupToForm(group.name)
-        // })
-        // const groupIds = this.groups.map((group) => group.id)
-        // console.log(groupIds);
       },
       error: (error) => {
         console.log(error);
@@ -59,23 +53,17 @@ export class ListFormComponent implements OnInit{
     })
   }
 
-  // get groupIds(): FormArray {
-  //   return this.listForm.get("groupIds") as FormArray;
-  // }
-
-  // extractGroupIds() {
-
-  // }
-
   onCreateList() {
     // console.log(this.listForm.value)
     this.listService.createList(this.listForm.value).subscribe({
       next: () => {
-        this.router.navigate(['/'])
+        this.router.navigate(['/lists'])
+      },
+      error: (error) => {
+        console.log(error);
       }
     })
   }
 
 }
 
-// TODO: need a subject or event emitter to notify the lists component that the lists have updated

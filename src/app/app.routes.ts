@@ -15,25 +15,19 @@ export const routes: Routes = [
     {
         path: "lists",
         loadComponent: () => import('./shared/components/lists/lists/lists.component').then((c) => c.ListsComponent),
-        canActivate: [authGuard],
-        children: [
-            {
-                path: 'add-list',
-                component: ListFormComponent,
-                canActivate: [authGuard]
-            }
-        ]
+        canActivate: [authGuard]
+    },
+    {
+        path: 'lists/add-list',
+        loadComponent: () => import('./shared/components/lists/list-form/list-form.component').then((c) => c.ListFormComponent),
+        canActivate: [authGuard]
     },
     {
         path: "lists/:id",
         loadComponent: () => import('./shared/components/lists/list/list.component').then((c) => c.ListComponent),
         canActivate: [authGuard],
         children: [
-            {
-                path: 'add-item',
-                component: ItemFormComponent,
-                canActivate: [authGuard]
-            },
+
             {
                 path: ':id/edit',
                 component: ItemFormComponent,
@@ -41,11 +35,11 @@ export const routes: Routes = [
             }
         ]
     },
-    // {
-    //     path: "add-item",
-    //     loadComponent: () => import('./shared/components/items/add-item/add-item.component').then((c) => c.AddItemComponent),
-    //     canActivate: [authGuard]
-    // },
+    {
+        path: 'lists/:id/add-item',
+        loadComponent: () => import('./shared/components/items/item-form/item-form.component').then((c) => c.ItemFormComponent),
+        canActivate: [authGuard]
+    },
     {
         path: "items/:id",
         loadComponent: () => import('./shared/components/items/item/item.component').then((c) => c.ItemComponent),
