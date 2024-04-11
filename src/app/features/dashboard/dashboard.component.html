@@ -1,9 +1,13 @@
 <div class="container">
     <!-- TODO Have user info here? -->
-    <p>Welcome, {{currentUser?.username}}!</p>
-    <a routerLink="lists" routerLinkActive="active">My Lists</a>
-    <a routerLink="groups" routerLinkActive="active">My Groups</a>
-    <!-- <router-outlet /> -->
+    <div class="dashboard-welcome">
+        <p>welcome, {{currentUser?.username}}!</p>
+    </div>
+    <div class="dashboard-links">
+        <a href="">account info</a>
+        <a routerLink="lists" routerLinkActive="active">my lists</a>
+        <a routerLink="groups" routerLinkActive="active">my groups</a>
+    </div>
 </div>
 
 <!-- TODO Add a way to view current shopping lists? -->

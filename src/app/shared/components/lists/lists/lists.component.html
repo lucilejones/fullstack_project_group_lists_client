@@ -1,4 +1,7 @@
 <div class="container">
+    <div class="add-button">
+        <button routerLink="/lists/add-list">Add a new List</button>
+    </div>
     <div class="list-of-lists">
         @for (list of lists; track list.id) {
             <!-- <app-list [list]="list"/> -->
@@ -8,6 +11,4 @@
 </div>
 
 <!-- create a new list -->
-<div>
-    <button routerLink="/lists/add-list">Create new List</button>
-</div>
+

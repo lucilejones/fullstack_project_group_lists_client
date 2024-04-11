@@ -1,4 +1,46 @@
 .container {
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+.dashboard-welcome {
+    display: flex;
+    justify-content: center;
+
+}
+
+.dashboard-welcome p {
+    display: flex;
+    font-size: 24px;
+    color: #fffffd;
+    background-color: #a1bccc;
+    width: 75vw;
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+    border-radius: 44% 47% 35% 29% / 55% 41% 55% 40% ;
+    margin-bottom: 25px;
+}
+
+.dashboard-links {
+    display: flex;
+    flex-direction: column;
+    width: 75vw;
+
+    border-radius: 5px;
+}
+
+.dashboard-links a {
+    border-bottom: solid 1px #f59b78;
+    border-right: solid 1px #f59b78;
+    background-color: #fffffd;
+    height: 50px;
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #014169;
+    font-weight: bold;
+    // text-align: center;
 }

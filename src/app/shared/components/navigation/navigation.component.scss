@@ -1,4 +1,40 @@
+.nav-container {
+    display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+    color: #014169;
+    font-weight: bold;
+    border-bottom: solid 3px #f59b78;
+}
+
+.logo {
+    margin-left: 15px;
+    font-style: italic;
+}
+
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-links a {
+    margin-right: 15px;
+}
+
+.dashboard-navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 35px;
+}
+
+.dashboard-navbar a {
+    margin-right: 15px;
+}
+
 a {
     cursor: pointer;
     text-decoration: none;
+    color: #014169;
 }
