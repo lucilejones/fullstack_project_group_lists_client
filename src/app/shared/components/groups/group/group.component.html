@@ -1,6 +1,9 @@
 <div class="group-header">
     <p>{{group.name}}</p>
 </div>
+<div class="add-button">
+    <button [routerLink]="['/groups', group.id, 'invite-user']">Invite</button>
+</div>
 <div>
     <div>
         <p>Users in this Group</p>

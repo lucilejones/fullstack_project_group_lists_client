@@ -4,14 +4,14 @@ import { Group } from '../../../models/group';
 import { User } from '../../../models/user';
 import { List } from '../../../models/list';
 import { Item } from '../../../models/item';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { GroupService } from '../../../../core/services/group.service';
 import { UserService } from '../../../../core/services/user.service';
 
 @Component({
   selector: 'app-group',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './group.component.html',
   styleUrl: './group.component.scss'
 })
@@ -63,4 +63,3 @@ export class GroupComponent implements OnInit{
   }
 }
 
-// this.event.participants = this.event.participants.filter((p) => p.id !== this.currentUser?.id)

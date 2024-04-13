@@ -1,0 +1,9 @@
+<div>
+    <form [formGroup]="invitationForm" (ngSubmit)="onCreateInvitation()">
+        <div>
+            <label for="email">User email</label>
+            <input type="text" formControlName="email">
+        </div>
+        <button type="submit">Send Invitation</button>
+    </form>
+</div>

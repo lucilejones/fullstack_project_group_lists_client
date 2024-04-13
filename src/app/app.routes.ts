@@ -56,6 +56,11 @@ export const routes: Routes = [
         canActivate: [authGuard]
     },
     {
+        path: "groups/:id/invite-user",
+        loadComponent: () => import('./shared/components/groups/invite-user-form/invite-user-form.component').then((c) => c.InviteUserFormComponent),
+        canActivate: [authGuard]
+    },
+    {
         path: 'login',
         loadComponent: () => import('./features/auth/login/login.component').then((c) => c.LoginComponent),
         canActivate: [noAuthGuard]
