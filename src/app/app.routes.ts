@@ -61,6 +61,11 @@ export const routes: Routes = [
         canActivate: [authGuard]
     },
     {
+        path: "invitations",
+        loadComponent: () => import('./shared/components/invitations/invitations.component').then((c) => c.InvitationsComponent),
+        canActivate: [authGuard]
+    },
+    {
         path: 'login',
         loadComponent: () => import('./features/auth/login/login.component').then((c) => c.LoginComponent),
         canActivate: [noAuthGuard]

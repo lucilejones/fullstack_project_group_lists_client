@@ -25,4 +25,8 @@ export class NotificationService {
     }
   }
 
+  get invitationChannel() {
+    return this.channel;
+  }
+
 }
