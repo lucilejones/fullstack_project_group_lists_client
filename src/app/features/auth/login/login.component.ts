@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../../core/services/authentication.service';
-import { NotificationService } from '../../../core/services/notification.service';
 
 @Component({
   selector: 'app-login',
@@ -20,8 +19,7 @@ export class LoginComponent {
 
   constructor(
     private authService: AuthenticationService,
-    private router: Router,
-    private notificationService: NotificationService
+    private router: Router
   ) {}
 
   login() {
@@ -33,7 +31,6 @@ export class LoginComponent {
         next: (res:any) => {
           // console.log(res);
           // this.authService.setToken(res.token);
-          this.notificationService.subscribeToInvitationsChannel(res.current_user.id);
           this.router.navigate(['/']);
         },
         error: (error:any) => {

@@ -7,17 +7,14 @@ import { UserService } from './core/services/user.service';
 import { AuthenticationService } from './core/services/authentication.service';
 import { of } from 'rxjs';
 import { authInterceptor } from '../app/core/interceptors/auth.interceptor';
-import { NotificationService } from './core/services/notification.service';
 
 export function initializeUserData(
   userService: UserService, 
-  authService: AuthenticationService,
-  notificationService: NotificationService
+  authService: AuthenticationService
 ) {
   if(authService.isLoggedIn()) {
       return () => userService.getBootstrapData().subscribe((res: any) => {
         const currentUser = res.current_user
-        notificationService.subscribeToInvitationsChannel(currentUser.id)
       });
   }else {
       return () => of(null);
@@ -30,7 +27,7 @@ export const appConfig: ApplicationConfig = {
     {
       provide: APP_INITIALIZER,
       useFactory: initializeUserData,
-      deps: [UserService, AuthenticationService, NotificationService],
+      deps: [UserService, AuthenticationService],
       multi: true
     },
     provideHttpClient(withInterceptors([authInterceptor]))

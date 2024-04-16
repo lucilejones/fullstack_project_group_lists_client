@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { UserService } from './user.service';
 import { pipe, switchMap } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import { NotificationService } from './notification.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +13,7 @@ export class AuthenticationService {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private userService: UserService,
-    private notificationService: NotificationService
+    private userService: UserService
   ) { }
 
   login(username: string, password: string) {
@@ -47,7 +45,6 @@ export class AuthenticationService {
 
   logout() {
     const currentUser = this.userService.currentUserBehaviorSubject.value;
-    this.notificationService.unsubscribeFromInvitationsChannel(currentUser!.id);
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
   }

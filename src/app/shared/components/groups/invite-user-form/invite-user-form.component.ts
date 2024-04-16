@@ -43,18 +43,19 @@ export class InviteUserFormComponent implements OnInit {
 
   onCreateInvitation() {
     // console.log(this.invitationForm.value)
-    const acceptInvitationUrl = `${environment.apiUrl}/groups/${this.groupId}/join`
+    // const acceptInvitationUrl = `${environment.apiUrl}/groups/${this.groupId}/join`
 
     const invitation: Invitation = {
       group_id: this.groupId!,
       sender: this.currentUser!,
       email: this.invitationForm.value.email,
       // message: `${acceptInvitationUrl}`
+      accepted: false
     }
 
     console.log(invitation)
 
-    this.invitationService.sendInvitation(invitation, acceptInvitationUrl).subscribe({
+    this.invitationService.sendInvitation(invitation).subscribe({
       next: () => {
         this.router.navigate(['/groups', this.groupId]);
       },
