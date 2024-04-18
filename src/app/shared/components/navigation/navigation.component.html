@@ -18,7 +18,7 @@
 </nav>
 <div class="dashboard-navbar">
     @if (isLoggedIn()) {
-        <div>
+        <div class="logged-in-links">
             <!-- TODO put these in a conditional render for when the user is logged in -->
             <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Dashboard</a>
             <a routerLink="lists" routerLinkActive="active">My Lists</a>

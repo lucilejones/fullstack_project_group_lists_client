@@ -1,10 +1,84 @@
+.container {
+    padding: 15px;
+    color: #014169;
+}
+
+.list-header {
+    font-size: 20px;
+    color: #fffffd;
+    background-color: #a1bccc;
+    padding-left: 15px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.add-button {
+    border-radius: 5px;
+    height: 30px;
+    width: 120px;
+    margin-top: 20px;
+    color: #fffffd;
+    background-color: #f59b78;
+    font-family: "Montserrat", sans-serif;
+    cursor: pointer;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+}
+
+.item-list {
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    min-height: 70vh;
+    padding: 35px;
+    margin-top: 25px;
+    display: flex;
+    justify-content: left;
+    border: 1px solid #f59b78;
+    border-radius: 5px;
+}
+
 .item-container {
     display: flex;
-    max-width: 200px;
-    border: solid 1px;
-    padding: 8px;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.item-name {
+    display: flex;
+    min-width: 300px;
+    border-right: 1px solid #014169;
+    border-bottom: 1px solid #014169;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
 }
 
 .item-container a {
     margin-right: 10px;
+    text-decoration: none;
+    color: #014169;
+    font-size: 20px;
+}
+
+.item-container button {
+    border-radius: 5px;
+    height: 30px;
+    width: 60px;
+    color: #fffffd;
+    background-color: #a1bccc;
+    font-family: "Montserrat", sans-serif;
+    cursor: pointer;
+}
+
+.item-button-container {
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
 }

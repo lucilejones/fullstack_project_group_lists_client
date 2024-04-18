@@ -18,7 +18,8 @@
 }
 
 .app-subtitle {
-    font-size: 54px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 44px;
 }
 
 .form-container {
@@ -31,4 +32,43 @@
     border-radius: 72% 28% 67% 33% / 47% 59% 41% 53% ;
     background-color: #a1bccc;
     position: absolute;
+}
+
+.form-group {
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-group label {
+    margin-right: 5px;
+}
+
+.form-group input {
+    height: 25px;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    border-bottom: solid 1px #014169;
+    border-right: solid 1px #014169;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.login-button {
+    border-radius: 5px;
+    height: 30px;
+    width: 50px;
+    color: #fffffd;
+    background-color: #f59b78;
+    font-family: "Montserrat", sans-serif;
+    cursor: pointer;
+}
+
+.login-button[disabled] {
+    color: grey;
+    background-color: #fce9df;
 }

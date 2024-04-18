@@ -1,14 +1,16 @@
 <div class="container">
-    <div class="add-button">
-        <button routerLink="/lists/add-list">Add a new List</button>
+    <div class="button-container">
+        <button class="add-button" routerLink="/lists/add-list">Create a new List</button>
     </div>
-    <div class="list-of-lists">
-        @for (list of lists; track list.id) {
-            <!-- <app-list [list]="list"/> -->
-            <a [routerLink]="['/lists', list.id]"><p>{{list.name}}</p></a>
-        }
+    <div class="main-container">
+        <div class="list-of-lists">
+            @for (list of lists; track list.id) {
+                <!-- <app-list [list]="list"/> -->
+                <a [routerLink]="['/lists', list.id]"><p>{{list.name}}</p></a>
+                <!-- add logic to put the group name also -->
+            }
+        </div>
     </div>
 </div>
 
-<!-- create a new list -->
 

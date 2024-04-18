@@ -44,6 +44,7 @@ export class GroupsComponent implements OnInit{
       next: (groups: Group[]) => {
         // console.log(groups)
         this.joinedGroups = groups;
+        this.sortJoinedGroupsByName();
       },
       error: (error: any) => {
         console.error('Error fetching user joined groups.', error);
@@ -51,5 +52,12 @@ export class GroupsComponent implements OnInit{
     })
   }
 
-  
+  sortJoinedGroupsByName() {
+    this.joinedGroups.sort((a, b) => {
+      if (a.name < b.name) return -1;
+      if (a.name > b.name) return 1;
+      return 0;
+    });
+  }
+
 }

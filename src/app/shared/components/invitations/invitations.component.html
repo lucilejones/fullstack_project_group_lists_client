@@ -3,11 +3,11 @@
 
 <div class="container">
     @for (invitation of invitations; track invitation.id) {
-        <div *ngIf="invitation.accepted == false">
+        <div class="invitation-container" *ngIf="invitation.accepted == false">
             <p>{{invitation.sender.username}} sent you an invitation to join their group.</p>
-            <p>Click on the link to join!</p>
+            <p>Click the button to join!</p>
             <!-- <a [routerLink]="['/groups', invitation.group_id]">Join</a> -->
-            <p (click)="joinGroup(invitation, invitation.group_id)" style="cursor: pointer">Join</p>
+            <button class="join-button" (click)="joinGroup(invitation, invitation.group_id)">Join</button>
         </div>
 
     }

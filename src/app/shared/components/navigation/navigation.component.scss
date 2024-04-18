@@ -10,7 +10,7 @@
 
 .logo {
     margin-left: 15px;
-    font-style: italic;
+    font-family: "Sedan", serf;
 }
 
 .navbar {
@@ -37,4 +37,8 @@ a {
     cursor: pointer;
     text-decoration: none;
     color: #014169;
+}
+
+.logged-in-links a {
+    font-family: "Montserrat", sans-serif;
 }

@@ -21,7 +21,6 @@ export class InviteUserFormComponent implements OnInit {
   invitationForm: FormGroup = new FormGroup({
     email: new FormControl('')
   })
-    // email = new FormControl('')
 
   constructor(
     private route: ActivatedRoute,
@@ -43,13 +42,11 @@ export class InviteUserFormComponent implements OnInit {
 
   onCreateInvitation() {
     // console.log(this.invitationForm.value)
-    // const acceptInvitationUrl = `${environment.apiUrl}/groups/${this.groupId}/join`
 
     const invitation: Invitation = {
       group_id: this.groupId!,
       sender: this.currentUser!,
       email: this.invitationForm.value.email,
-      // message: `${acceptInvitationUrl}`
       accepted: false
     }
 
@@ -66,17 +63,3 @@ export class InviteUserFormComponent implements OnInit {
   }
 
 }
-
-
-// joinGroup(id: any) {
-//   return this.http.post(`${environment.apiUrl}/groups/${id}/join`, {})
-// }
-
-// this.itemService.createItem(item).subscribe({
-//   next: () => {
-//     this.router.navigate(['/lists', this.listId])
-//   },
-//   error: (error) => {
-//     console.log(error);
-//   }
-// })

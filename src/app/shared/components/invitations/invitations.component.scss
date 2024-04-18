@@ -1,0 +1,24 @@
+.container {
+    padding: 15px;
+}
+
+.invitation-container {
+    padding: 8px;
+    margin: 20px;
+    width: 50%;
+    border-bottom: solid 1px #f59b78;
+    border-right: solid 1px #f59b78;
+    border-radius: 5px;
+    background-color: #fffffd;
+}
+
+.join-button {
+    border-radius: 5px;
+    height: 30px;
+    width: 50px;
+    color: #fffffd;
+    background-color: #f59b78;
+    font-family: "Montserrat", sans-serif;
+    cursor: pointer;
+    margin-top: 5px;
+}

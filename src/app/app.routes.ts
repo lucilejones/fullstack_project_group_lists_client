@@ -51,6 +51,11 @@ export const routes: Routes = [
         canActivate: [authGuard]
     },
     {
+        path: 'groups/add-group',
+        loadComponent: () => import('./shared/components/groups/group-form/group-form.component').then((c) => c.GroupFormComponent),
+        canActivate: [authGuard]
+    },
+    {
         path: "groups/:id",
         loadComponent: () => import('./shared/components/groups/group/group.component').then((c) => c.GroupComponent),
         canActivate: [authGuard]

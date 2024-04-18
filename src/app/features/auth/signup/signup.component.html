@@ -33,7 +33,9 @@
             </div>
     
             <!-- TODO: add validators to form to make this check work -->
-            <button type="submit" [disabled]="!signupForm.valid">Sign Up</button>
+            <div class="button-container">
+                <button type="submit" class="signup-button" [disabled]="!signupForm.valid">Sign Up</button>
+            </div>
         </form>
     
         <!-- @if(isError) {

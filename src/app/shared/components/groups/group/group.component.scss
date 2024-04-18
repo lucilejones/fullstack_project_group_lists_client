@@ -1,3 +1,8 @@
+.container {
+    padding: 15px;
+    color: #014169;
+}
+
 .group-header p {
     font-size: 20px;
     color: #fffffd;
@@ -5,6 +10,54 @@
     padding-left: 15px;
 }
 
-.member-list {
+.button-container {
     display: flex;
+    justify-content: flex-end;
+}
+
+.invite-button {
+    border-radius: 5px;
+    height: 30px;
+    width: 60px;
+    margin-top: 20px;
+    color: #fffffd;
+    background-color: #f59b78;
+    font-family: "Montserrat", sans-serif;
+    cursor: pointer;
+}
+
+.member-list {
+    padding: 30px;
+    border-bottom: 1px solid #a1bccc;
+    margin-bottom: 35px;
+}
+
+.member-info {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #f59b78;
+    padding: 8px;
+}
+
+.member-info-details {
+    display: flex;
+}
+
+.member-info-details p {
+    margin-right: 5px;
+}
+
+.list-button {
+    border-radius: 5px;
+    height: 30px;
+    width: 110px;
+    margin-top: 20px;
+    color: #fffffd;
+    background-color: #f59b78;
+    font-family: "Montserrat", sans-serif;
+    cursor: pointer;
+}
+
+.items-to-purchase li {
+    list-style-type: none;
 }

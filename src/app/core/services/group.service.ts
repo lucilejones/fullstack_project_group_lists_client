@@ -27,6 +27,10 @@ export class GroupService {
     return this.http.get<Group>(`${environment.apiUrl}/groups/${id}`)
   }
 
+  createGroup(group:Group) {
+    return this.http.post(`${environment.apiUrl}/groups`, group);
+  }
+
   joinGroup(id: any) {
     return this.http.post(`${environment.apiUrl}/groups/${id}/join`, {})
   }

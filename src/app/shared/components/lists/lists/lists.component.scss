@@ -2,7 +2,43 @@
     padding: 15px;
 }
 
-.add-button {
+.button-container {
     display: flex;
     justify-content: flex-end;
+}
+
+.add-button {
+    border-radius: 5px;
+    height: 30px;
+    width: 130px;
+    color: #fffffd;
+    background-color: #a1bccc;
+    font-family: "Montserrat", sans-serif;
+    cursor: pointer;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+}
+
+.list-of-lists {
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    min-height: 70vh;
+    padding: 35px;
+    margin-top: 25px;
+    display: flex;
+    justify-content: left;
+    border: 1px solid #f59b78;
+    border-radius: 5px;
+}
+
+.list-of-lists a {
+    text-decoration: none;
+    color: #014169;
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
 }

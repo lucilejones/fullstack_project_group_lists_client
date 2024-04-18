@@ -1,26 +1,26 @@
-<div>
-    <form [formGroup]="itemForm" (ngSubmit)="onCreateItem()">
-        <div>
+<div class="container">
+    <form class="form-container" [formGroup]="itemForm" (ngSubmit)="onCreateItem()">
+        <div class="form-group" >
             <label for="name">Name</label>
             <input type="text" formControlName="name">
         </div>
-        <div>
+        <div class="form-group" >
             <label for="brand">Brand</label>
             <input type="text" formControlName="brand">
         </div>
-        <div>
+        <div class="form-group" >
             <label for="store">Store</label>
             <input type="text" formControlName="store">
         </div>
-        <div>
+        <div class="form-group notes-group" >
             <label for="notes">Notes</label>
-            <input type="text" formControlName="notes">
+            <textarea id="notes" formControlName="notes" rows="5"></textarea>
         </div>
         <!-- checkmark -->
-        <div>
+        <div class="form-group checkbox-group" >
             <label for="need_to_purchase">Need to purchase</label>
             <input type="checkbox" formControlName="need_to_purchase">
         </div>
-        <button type="submit">Create Item</button>
+        <button class="create-button" type="submit">Create Item</button>
     </form>
 </div>

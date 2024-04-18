@@ -1,52 +1,57 @@
-<div class="group-header">
-    <p>{{group.name}}</p>
-</div>
-<div class="add-button" *ngIf="this.currentUser?.id == group.creator?.id">
-    <button [routerLink]="['/groups', group.id, 'invite-user']">Invite</button>
-</div>
-<div>
-    <div>
-        <p>Users in this Group</p>
+<div class="container">
+    <div class="group-header">
+        <p>{{group.name}}</p>
     </div>
-
-    <div>
-        <!-- <li>{{group.creator.username}} ({{group.creator.first_name}}) creator</li> -->
-        @for(member of group.members; track member.id) {
-            <div class="member-list">
-                <p *ngIf="group.creator?.id == member.id"> creator</p>
-                <p>{{member.username}} ({{member.first_name}})</p>
-                <p *ngIf="this.currentUser?.id == member.id"> you</p>
-            </div>
-        }
+    <div class="button-container" *ngIf="this.currentUser?.id == group.creator?.id">
+        <button class="invite-button" [routerLink]="['/groups', group.id, 'invite-user']">Invite</button>
     </div>
-</div>
-
-<div *ngIf="this.currentUser?.id == group.creator?.id">
     <div>
-        <p>Create a shopping list from all members' lists of items that need to be purchased</p>
-    </div>
-    <button (click)="generateItemsToPurchase()">Generate List</button>
-    <!-- <ul>
-        @for(list of group.lists; track list.id) {
-            <p>{{list.name}} ({{list.user?.username}})</p>
-            @for(item of list.items; track item.id) {
-                <li *ngIf="item.need_to_purchase"> {{item.name}}</li>
-            }
-        }
-    </ul> -->
-    @if(showList) {
         <div>
-            @for(item of toPurchaseItems; track item.id) {
-                <li *ngIf="item.need_to_purchase"> {{item.name}}</li>
+            <p>Users in this Group</p>
+        </div>
+    
+        <div class="member-list">
+            <!-- <li>{{group.creator.username}} ({{group.creator.first_name}}) creator</li> -->
+            @for(member of group.members; track member.id) {
+                <div class="member-info">
+                    <p *ngIf="group.creator?.id == member.id"> creator</p>
+                    <div class="member-info-details">
+                        <p>{{member.username}} - {{member.first_name}}</p>
+                        <p *ngIf="this.currentUser?.id == member.id">(you)</p>
+                    </div>
+                </div>
             }
         </div>
-    }
-
+    </div>
+    
+    <div *ngIf="this.currentUser?.id == group.creator?.id">
+        <div>
+            <p>Create a shopping list from all members' lists of items that need to be purchased.</p>
+        </div>
+        <button class="list-button" (click)="generateItemsToPurchase()">Generate List</button>
+        <!-- <ul>
+            @for(list of group.lists; track list.id) {
+                <p>{{list.name}} ({{list.user?.username}})</p>
+                @for(item of list.items; track item.id) {
+                    <li *ngIf="item.need_to_purchase"> {{item.name}}</li>
+                }
+            }
+        </ul> -->
+        @if(showList) {
+            <div class="items-to-purchase">
+                <p *ngIf="toPurchaseItems.length == 0">No items needed</p>
+                @for(item of toPurchaseItems; track item.id) {
+                    <li *ngIf="item.need_to_purchase"> {{item.name}}</li>
+                    <!-- add logic to inclue the name of the user whose item it is -->
+                }
+            </div>
+        }
+    
+    </div>
 </div>
-<!-- TODO add/invite member -->
+
 <!-- Delete member, edit member -->
 <!-- TODO save the generated shopping list for this group (localStorage?)-->
 <!-- Then the user has a way to change need_to_purchase to false? Or individual users update their own lists? -->
 
-<!-- If it's their created group, have option to invite a user to this group -->
 <!-- If it's not their created group, have option to leave the group -->

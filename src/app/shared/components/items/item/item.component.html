@@ -1,16 +1,19 @@
-<div>
-    <button (click)="goBack()">Back to list</button>
+<div class="container">
+    <div>
+        <button class="back-button" (click)="goBack()">Back to list</button>
+    </div>
+    
+    <div class="list-container">
+        <ul class="item-list">
+            <li>Name: {{item.name}}</li>
+            <li>Brand: {{item.brand}}</li>
+            <li>Store: {{item.store}}</li>
+            <li>Notes: {{item.notes}}</li>
+            <li>Need to purchase: {{item.need_to_purchase}}</li>
+        </ul>
+    </div>
 </div>
 
-<div>
-    <ul>
-        <li>Name: {{item.name}}</li>
-        <li>Brand: {{item.brand}}</li>
-        <li>Store: {{item.store}}</li>
-        <li>Notes: {{item.notes}}</li>
-        <li>Need to purchase: {{item.need_to_purchase}}</li>
-    </ul>
-</div>
 
 <!-- TODO -->
 <!-- edit button, delete button -->

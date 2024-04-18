@@ -1,24 +1,30 @@
-<div class="list-header">
-    <div>List: {{list.name}}</div>
-    <div>Group: {{list.group.name}}</div>
-    <!-- update blueprint to send association group in order to display group name -->
+<div class="container">
+    <div class="list-header">
+        <div>List: {{list.name}}</div>
+        <div>Group: {{list.group.name}}</div>
+    </div>
+    <div class="button-container">
+        <button class="add-button" [routerLink]="['/lists', list.id, 'add-item']">Add new item</button>
+    </div>
+    <div class="main-container">
+        <ul class="item-list">
+            @for (item of items; track item.id) {
+                <div class="item-container">
+                    <div class="item-name">
+                        <a [routerLink]="['/items', item.id]"><p>{{item.name}}</p></a>
+                        <span *ngIf="item.need_to_purchase"> * </span>
+                    </div>
+                    <div class="item-button-container">
+                        <button (click)="navigateToEditItemRoute(item.id)">edit</button>
+                        <button>delete</button>
+                    </div>
+                </div>
+            }
+        </ul>
+    </div>
 </div>
 
-<div>
-    <ul class="item-list">
-        @for (item of items; track item.id) {
-            <div class="item-container">
-                <a [routerLink]="['/items', item.id]"><p>{{item.name}}</p></a>
-                <span *ngIf="item.need_to_purchase"> * </span>
-                <p (click)="navigateToEditItemRoute(item.id)" style="cursor: pointer">edit</p>
-                <p>delete</p>
-            </div>
-        }
-    </ul>
-</div>
-<div>
-    <button [routerLink]="['/lists', list.id, 'add-item']">Add new item</button>
-</div>
+
 
 
 

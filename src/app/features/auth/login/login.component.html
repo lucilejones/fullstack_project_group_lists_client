@@ -13,8 +13,10 @@
                 <label for="password">Password</label>
                 <input type="text" formControlName="password">
             </div>
-    
-            <button type="submit" [disabled]="!loginForm.valid">Login</button>
+            <div class="button-container">
+                <button type="submit" class="login-button" [disabled]="!loginForm.valid">Login</button>
+            </div>
+
         </form>
     
         @if(isError) {

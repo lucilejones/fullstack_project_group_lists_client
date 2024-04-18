@@ -1,0 +1,63 @@
+.container {
+    padding: 45px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    // justify-content: left;
+    height: 75vh;
+    width: 35vw;
+    align-items: left;
+}
+
+.form-group {
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-group label {
+    margin-right: 10px;
+}
+
+.form-group input {
+    height: 25px;
+    width: 70%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    border-bottom: solid 1px #014169;
+    border-right: solid 1px #014169;
+}
+
+.notes-group textarea {
+    width: 70%;
+    padding: 8px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    border-bottom: solid 1px #014169;
+    border-right: solid 1px #014169;
+    font-family: "Montserrat", sans-serif;
+}
+
+.checkbox-group {
+    justify-content: left;
+    align-items: center;
+}
+
+.checkbox-group input {
+    width: 5%;
+}
+
+.create-button {
+    border-radius: 5px;
+    height: 30px;
+    width: 100px;
+    color: #fffffd;
+    background-color: #f59b78;
+    font-family: "Montserrat", sans-serif;
+    cursor: pointer;
+    margin-top: 15px;
+}

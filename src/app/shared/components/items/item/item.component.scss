@@ -1,0 +1,23 @@
+.container {
+    padding: 15px;
+}
+
+.back-button {
+    border-radius: 5px;
+    height: 30px;
+    width: 100px;
+    color: #fffffd;
+    background-color: #f59b78;
+    font-family: "Montserrat", sans-serif;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.list-container {
+    margin-top: 25px;
+}
+
+.item-list li {
+    list-style-type: none;
+    margin-bottom: 5px;
+}
