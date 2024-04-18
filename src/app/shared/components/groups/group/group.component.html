@@ -41,7 +41,11 @@
             <div class="items-to-purchase">
                 <p *ngIf="toPurchaseItems.length == 0">No items needed</p>
                 @for(item of toPurchaseItems; track item.id) {
-                    <li *ngIf="item.need_to_purchase"> {{item.name}}</li>
+                    <div class="item-container">
+                        <li *ngIf="item.need_to_purchase"> {{item.name}}</li>
+                        <span>{{item.store}}</span>
+                        <span>{{item.notes}}</span>
+                    </div>
                     <!-- add logic to inclue the name of the user whose item it is -->
                 }
             </div>

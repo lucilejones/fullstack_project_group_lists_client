@@ -58,6 +58,20 @@
     cursor: pointer;
 }
 
+.items-to-purchase {
+    padding: 30px;
+}
+
+.item-container {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #a1bccc;
+}
+
 .items-to-purchase li {
     list-style-type: none;
+}
+
+.items-to-purchase span {
+    margin-left: 15px;
 }
